@@ -19,12 +19,26 @@
       5. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
 *************************** */
 
+
+
+const resetQuizButton = document.querySelector("#btnReset");
+resetQuizButton.addEventListener('click' ,function () {;
+  resetButton = window.location.reload();
+      //t6console.log(resetQuizButton);
+})
+
 window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
   start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
   });
+  //window.addEventListener('DOMContentLoaded', () => {
+   
+  //submit button
+  //form.addEventListener('submit', e => {
+    //e.preventDefault();
+
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
@@ -44,7 +58,20 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
-  ];
+    //add 2 more question
+    {
+      q: 'What is the pupular animal in Australia',
+      o: [ 'Coala' , 'Kangaroo' , 'Dolphin' , 'Lion'],
+      a: 0 
+    },
+    {
+      q: 'Which is the where corocodil lives',
+      o: [ 'ocean','River' ,'Tree' , 'Land'],
+         a : 1
+       },
+      ]
+
+  
 
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
@@ -76,15 +103,31 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
+          quizItem.a[quizItem.q].style.color = 'lightgreen'; //answerContainers[questionNumber].style.color = 'lightgreen';
         }
 
         if (radioElement.checked) {
           // code for task 1 goes here
+        
         }
       }
     });
   };
 
   // call the displayQuiz function
-  displayQuiz();
+  displayQuiz('quizWrap');
 });
+console.log('quizWrap')
+
+//window.location.reload(true);
+// window.addEventListener('DOMContentLoaded', () => {
+//   const start = document.querySelector('#start');
+//   start.addEventListener('click', function (e) {
+//     document.querySelector('#quizBlock').style.display = 'block';
+//     start.style.display = 'none';
+//window.location.reload()
+
+
+//Add an Event listener for the submit button, which will display the score and highlight the correct answers when the button is clicked
+//form.addEventListener('submit', e => {
+  //e.preventDefault();
